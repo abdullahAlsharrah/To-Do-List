@@ -1,3 +1,4 @@
+import { Button } from "@material-ui/core";
 import taskStore from "../../stores/tasksStore";
 const DeleteButton = ({ taskId }) => {
   const handleDelete = (event) => {
@@ -6,7 +7,9 @@ const DeleteButton = ({ taskId }) => {
   };
   return (
     <div>
-      <button onClick={handleDelete}>Delete</button>
+      <Button variant="contained" color="secondary" onClick={handleDelete}>
+        Delete
+      </Button>
     </div>
   );
 };

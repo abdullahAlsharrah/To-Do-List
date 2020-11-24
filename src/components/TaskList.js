@@ -6,14 +6,13 @@ import { observer } from "mobx-react";
 const TaskList = () => {
   return (
     <>
-      <button>New Task</button>
-      <Grid container spacing={5}>
-        <Grid item>
-          {taskStore.tasks.map((task) => (
-            <TaskItem task={task} />
-          ))}
-        </Grid>
+      {/* <Grid container spacing={5}> */}
+      <Grid item>
+        {taskStore.tasks.map((task) => (
+          <TaskItem task={task} />
+        ))}
       </Grid>
+      {/* </Grid> */}
     </>
   );
 };

@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteButton from "./buttons/DeleteButton";
+import taskStore from "../stores/tasksStore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,20 +25,25 @@ const useStyles = makeStyles((theme) => ({
 const TaskItem = ({ task }) => {
   const classes = useStyles();
 
-  const [checked, setChecked] = useState(task.done);
   const handleCheck = (e) => {
-    setChecked(e.target.checked);
+    taskStore.updateTaskDone(task.id);
   };
   return (
     <div>
-      <DeleteButton taskId={task.Id} />
       <Paper className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
-            <Checkbox checked={checked} onChange={handleCheck}></Checkbox>
+            <Checkbox checked={task.done} onChange={handleCheck}></Checkbox>
           </Grid>
           <Grid item xs>
-            <Typography>{task.title}</Typography>
+            <Typography
+              style={{ textDecoration: task.done ? "line-through" : "none" }}
+            >
+              {task.title}
+            </Typography>
+          </Grid>
+          <Grid item>
+            <DeleteButton taskId={task.id} />
           </Grid>
         </Grid>
       </Paper>
