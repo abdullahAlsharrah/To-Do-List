@@ -28,7 +28,7 @@ const TaskItem = ({ task }) => {
   };
   return (
     <div>
-      <Paper className={classes.paper}>
+      <Paper className={classes.paper} style={{ opacity: task.done ? 0.5 : 1 }}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
             <Checkbox checked={task.done} onChange={handleCheck}></Checkbox>
