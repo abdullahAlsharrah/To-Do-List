@@ -1,16 +1,20 @@
-import tasks from "../data/Tasks";
+import taskStore from "../stores/tasksStore";
 import TaskItem from "./TaskItem";
 import Grid from "@material-ui/core/Grid";
+import { observer } from "mobx-react";
 
 const TaskList = () => {
   return (
-    <Grid container spacing={5}>
-      <Grid item>
-        {tasks.map((task) => (
-          <TaskItem task={task} />
-        ))}
+    <>
+      <button>New Task</button>
+      <Grid container spacing={5}>
+        <Grid item>
+          {taskStore.tasks.map((task) => (
+            <TaskItem task={task} />
+          ))}
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
-export default TaskList;
+export default observer(TaskList);
