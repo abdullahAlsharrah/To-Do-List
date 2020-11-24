@@ -39,6 +39,7 @@ class TaskStore {
     try {
       let path = url + taskId;
       console.log("PATH", path);
+      //TODO: Should fix this to not fetch again!
       const response = await axios.put(path);
       // const foundTask = this.tasks.find((task) => task.id === +taskId);
       console.log("Tasks:", this.tasks);

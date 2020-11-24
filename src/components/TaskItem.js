@@ -1,10 +1,8 @@
-import { useState } from "react";
-import PriorityTag from "./PriorityTag";
 import Checkbox from "@material-ui/core/Checkbox";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
+
 import { makeStyles } from "@material-ui/core/styles";
 import DeleteButton from "./buttons/DeleteButton";
 import taskStore from "../stores/tasksStore";
