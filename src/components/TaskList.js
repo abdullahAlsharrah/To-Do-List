@@ -14,9 +14,7 @@ const TaskList = () => {
   return (
     <>
       {/* <Grid container spacing={5}> */}
-      <Button onClick={handleHideDoneTasks}>
-        {showCompletedTasks ? "Hide " : "Show "}completed tasks
-      </Button>
+
       <Grid item>
         {[...taskStore.tasks]
           .sort((task) => (task.done ? 1 : -1))
@@ -24,6 +22,9 @@ const TaskList = () => {
           .map((task) => (
             <TaskItem task={task} />
           ))}
+        <Button onClick={handleHideDoneTasks}>
+          {showCompletedTasks ? "Hide " : "Show "}completed tasks
+        </Button>
       </Grid>
       {/* </Grid> */}
     </>
